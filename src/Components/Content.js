@@ -95,7 +95,7 @@ const Content = () => {
                 Kwankap Dinang Gilles Hermann
               </h1>
               <h2 className="text-3xl mb-8 font-mono text-gray-300 tracking-wider">
-                <u className="text-blue-300">Architecte Frontend & UI Innovateur</u>
+                <u className="text-blue-300">Développeur Web & Mobile Full Stack</u>
               </h2>
               <p className="xl:text-lg lg:text-xl mb-8 text-gray-400 leading-relaxed">
               Développeur Web & Mobile Full Stack junior passionné par la création d'expériences web et application innovante.
@@ -173,7 +173,7 @@ const Content = () => {
       {/* Experience Section */}
       <section id="experience" className="container mx-auto px-4 py-24">
         <h2 className="lg:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
-          Expérience Professionnelle Senior
+          Expérience Professionnelle
         </h2>
         <p className="lg:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
           Un parcours professionnel axé sur le frontend, l'innovation UI/UX et le leadership technique.  Des expériences
@@ -241,7 +241,7 @@ const Content = () => {
             <span className="font-bold text-gray-400">Email:</span> <a href="mailto:kwenkaphermann@gmail.com" className="text-blue-300 hover:underline neon-text-link">kwenkaphermann@gmail.com</a>
           </p>
           <p className="text-gray-300 mb-4">
-            <span className="font-bold text-gray-400">Téléphone:</span> <a href="wa.me/+237690828692" className="text-blue-300 hover:underline neon-text-link">+237 690828692</a>
+            <span className="font-bold text-gray-400">Téléphone:</span> <a href="wa.me//+237690828692" className="text-blue-300 hover:underline neon-text-link">+237 690828692</a>
           </p>
           <p className="text-gray-300">
             <span className="font-bold text-gray-400">LinkedIn:</span> <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline neon-text-link">linkedin.com/in/your-linkedin</a>
