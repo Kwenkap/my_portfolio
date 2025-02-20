@@ -21,9 +21,9 @@ const Header = () => {
         </div>
         <div className="hidden lg:flex">
           <ul className="flex space-x-8">
-            {['Home', 'Company', 'Contact'].map(item => (
+            {['Home', 'Competences', 'Contact'].map(item => (
               <li key={item}>
-                <a href="#" className="block py-2 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent">{item}</a>
+                <a href={item} className="block py-2 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent">{item}</a>
               </li>
             ))}
           </ul>
