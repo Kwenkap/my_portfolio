@@ -4,40 +4,38 @@ import call from '../image/call.jpg';
 
 const Content = () => {
   const competences = [
-    { name: "React.js & Angular", level: 90 },
-    { name: "TypeScript / JavaScript", level: 85 },
-    { name: "HTML5 / CSS3 / SCSS", level: 95 },
-    { name: "Figma, Photoshop, Illustrator", level: 80 },
+    { name: "React.js & Angular", level: 80 },
+    { name: "TypeScript / JavaScript", level: 75 },
+    { name: "HTML5 / CSS3 / SCSS", level: 90 },
+    { name: "Figma, Photoshop, Illustrator, Canva", level: 90 },
+    { name: "Python, Django", level: 45 },
     { name: "UI/UX Design & Prototypage", level: 88 },
-    { name: "Animations CSS / JavaScript", level: 75 },
-    { name: "Performance Web & Optimisation", level: 70 },
     { name: "Responsive Design", level: 92 },
-    { name: "Tests Unitaires & E2E", level: 65 },
     { name: "Git & GitHub / GitLab", level: 85 },
     { name: "Bases de données NoSQL (MongoDB)", level: 70 },
     { name: "Node.js / Express", level: 60 },
-    { name: "CMS (Wordpress, etc.)", level: 75 },
-    { name: "Accessibilité Web (WCAG)", level: 68 },
-    { name: "Design Systems & Component Libraries", level: 82 },
+    { name: "CMS (Wordpress, Wix.)", level: 90 },
+    { name: "Design Systems & Component Libraries", level: 80 },
   ];
 
   const experiences = [
+   
     {
-      poste: "Architecte Frontend & Responsable UI/UX",
-      entreprise: "Tech Startup Innovante [Confidentiel]",
-      date: "Janvier 2024 - Présent",
+      poste: "Conseillé Technique",
+      entreprise: "Intelcia",
+      date: "Novembre 2023 - Present",
       missions: [
-        "Direction de la stratégie frontend et UI/UX pour l'ensemble des produits web.",
-        "Conception et implémentation d'un Design System réutilisable et évolutif.",
-        "Optimisation des performances frontend, amélioration de la vitesse de chargement de 40%.",
-        "Mentoring d'une équipe de 5 développeurs frontend juniors et médiums.",
-        "Introduction de techniques d'animation et de styling innovantes pour améliorer l'engagement utilisateur."
-      ]
+        "Assurer le support technique de N1 pour les clients de SFR, en répondant à leurs questions et en résolvant leurs problèmes liés aux services et équipements.",
+        "Diagnostiquer les incidents techniques, identifier les causes potentielles et proposer des solutions adaptées dans le respect des procédures.",
+        "Guider les clients dans l'utilisation des produits et services de SFR, en leur fournissant des informations claires et précises.",
+        "Enregistrer et suivre les incidents dans le système de gestion des tickets, en veillant à la satisfaction des clients et au respect des délais.",
+        "Collaborer avec les équipes techniques de niveau supérieur pour résoudre les problèmes complexes et améliorer la qualité du service.",
+        "Contribuer à l'amélioration continue des processus et des outils, en partageant les retours d'expérience et en proposant des solutions innovantes."      ]
     },
     {
-      poste: "Développeur Frontend Senior",
+      poste: "Stage Professionnel Développeur Full Stack",
       entreprise: "Agence Web de Pointe - Clear Solutions 237",
-      date: "Septembre 2022 - Décembre 2023",
+      date: "Octobre 2022 - Aout 2023",
       missions: [
         "Lead développeur frontend sur des projets web complexes pour des clients majeurs.",
         "Implémentation de solutions frontend avancées avec React.js et Angular.",
@@ -90,7 +88,7 @@ const Content = () => {
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 font-sans antialiased">
       {/* Hero Section */}
       <section id='hero' className="hero min-h-screen bg-transparent text-center lg:text-left">
-        <div className="container mx-auto px-4 py-32 flex items-center justify-center">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:gap-32 gap-8">
             <div className="hero-text">
               <h1 className="text-5xl font-bold font-mono uppercase tracking-wide mb-4 text-blue-500 neon-text">
@@ -100,10 +98,16 @@ const Content = () => {
                 <u className="text-blue-300">Architecte Frontend & UI Innovateur</u>
               </h2>
               <p className="xl:text-lg lg:text-xl mb-8 text-gray-400 leading-relaxed">
-                Développeur frontend senior passionné par la création d'expériences web exceptionnelles et innovantes.
-                Spécialisé dans les technologies frontend modernes et les techniques de styling avancées, je transforme
-                les visions créatives en réalité digitale performante et accessible.  Expertise en React.js, Angular,
-                animations web, optimisation de performance et UI/UX design.
+              Développeur Web & Mobile Full Stack junior passionné par la création d'expériences web et application innovante.
+                J’ai effectué plusieurs années en tant que téléconseiller dans l’expertise technique 
+                (SFR, par le sous-traitant INTELCIA) ce qui m’a permis d’acquérir de très bonnes compétences telles que l’organisation, 
+                L’écoute, le conseil ainsi que des qualités relationnelles importantes.
+                Par passion j'ai continué en parallèle mon apprentissage dans le développement web et les nouvelle 
+                technologie en réalisant quelques projet d’étude mais aussi quelque un professionnel pour des particuliers
+                 et quelques collaborations très bénéfiques pour ma monté en compétence.
+                 Je continue donc à travailler chaque jour avec envie, motivation et des idées
+                 plein la tête.
+
               </p>
               <div className="hero-buttons flex justify-center lg:justify-start space-x-4">
                 <a
@@ -120,32 +124,28 @@ const Content = () => {
                 </a>
               </div>
             </div>
-            <div className="hero-image flex justify-center lg:justify-end">
-            <div className="absolute text-center lg:text-right justify-center">
 
-                <img 
-                src={hero} 
+
+            <div className="text-center md:text-right justify-center py-10  ">
+                <img src={hero} 
                 alt="Votre photo" 
                 className="rounded-full ring-2 ring-blue-500 w-96 h-96 mx-auto lg:ml-auto 
                 object-cover transition-transform duration-500 transform hover:scale-105" />
-
-
-                <div className="overlay absolute inset-0 opacity-20 rounded-full pointer-events-none"></div>
-              </div>
             </div>
+
+
           </div>
         </div>
 
-
 {/* Skills Section */}
-        <section id="competences" className="container mx-auto px-4 py-24">
+<section id="competences" className="container mx-auto px-4 py-4">
                 <h2 className="lg:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
                   Expertise Frontend & Styles Innovants (Niveau de Maîtrise)
                 </h2>
                 <p className="lg:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
                   Visualisation de mon niveau de maîtrise pour chaque compétence clé en développement frontend et techniques de styling innovantes.
                 </p>
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-y-12 gap-x-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-y-12 gap-x-8">
                   {competences.map((competence, index) => (
                     <div key={index} className="skill-progress-item">
                       <span className="skill-name block font-mono text-gray-300 mb-2">{competence.name}</span>
@@ -164,6 +164,10 @@ const Content = () => {
 
       </section>
 
+
+
+
+
       
 
       {/* Experience Section */}
@@ -175,7 +179,7 @@ const Content = () => {
           Un parcours professionnel axé sur le frontend, l'innovation UI/UX et le leadership technique.  Des expériences
           significatives dans des environnements variés, de startups innovantes à des agences web de renom.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {experiences.map((experience, index) => (
             <div
               key={index}
@@ -234,10 +238,10 @@ const Content = () => {
         </p>
         <div className="contact-info text-center">
           <p className="text-gray-300 mb-4">
-            <span className="font-bold text-gray-400">Email:</span> <a href="mailto:your-email@example.com" className="text-blue-300 hover:underline neon-text-link">your-email@example.com</a>
+            <span className="font-bold text-gray-400">Email:</span> <a href="mailto:kwenkaphermann@gmail.com" className="text-blue-300 hover:underline neon-text-link">kwenkaphermann@gmail.com</a>
           </p>
           <p className="text-gray-300 mb-4">
-            <span className="font-bold text-gray-400">Téléphone:</span> <a href="tel:+1234567890" className="text-blue-300 hover:underline neon-text-link">+123 456 7890</a>
+            <span className="font-bold text-gray-400">Téléphone:</span> <a href="wa.me/+237690828692" className="text-blue-300 hover:underline neon-text-link">+237 690828692</a>
           </p>
           <p className="text-gray-300">
             <span className="font-bold text-gray-400">LinkedIn:</span> <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline neon-text-link">linkedin.com/in/your-linkedin</a>
