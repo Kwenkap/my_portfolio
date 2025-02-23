@@ -1,6 +1,6 @@
 // components/Header.js
 import React from 'react';
-import hero from '../image/hero.png'
+import hero from '../image/hero.jpg'
 
 
 const Header = () => {

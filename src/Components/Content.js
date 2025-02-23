@@ -1,9 +1,10 @@
-import React from 'react';
-import hero from '../image/hero.png';
-import call from '../image/call.jpg';
-import Slider from 'react-slick'; // Importation de Slider pour le carrousel
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import hero from '../image/hero.jpg';
+import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';import Slider from 'react-slick'; // Importation de Slider pour le carrousel
 import 'slick-carousel/slick/slick.css'; // Styles de base pour le carrousel
 import 'slick-carousel/slick/slick-theme.css'; // Thème pour le carrousel
+
 
 const Content = () => {
   // Données des compétences
@@ -19,7 +20,7 @@ const Content = () => {
     { name: "Bases de données NoSQL (MongoDB)", level: 70 },
     { name: "Node.js / Express", level: 60 },
     { name: "CMS (Wordpress, Wix.)", level: 90 },
-    { name: "Design Systems & Component Libraries", level: 80 },
+    { name: "TailwindCss , Boostrap", level: 80 },
   ];
 
   // Données des expériences professionnelles
@@ -62,7 +63,24 @@ const Content = () => {
   ];
 
   // Données des projets portfolio
-  const portfolios = [
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const response = await axios.get('https://api.github.com/users/Kwenkap/repos');
+        setRepos(response.data);
+      } catch (error) {
+        console.error('Erreur lors de la récupération des projets GitHub:', error);
+      }
+    };
+
+    fetchRepos();
+  }, []);
+
+
+   // Données des projets portfolio
+   const portfolios = [
     {
       nomProjet: "Plateforme SaaS d'Analyse de Données",
       technologies: "React.js, TypeScript, SCSS, Recharts, Framer Motion",
@@ -88,6 +106,7 @@ const Content = () => {
       imageSrc: "/images/projet-portfolio-v3.png" // Placeholder
     }
   ];
+
 
   // Configuration du carrousel
   const settings = {
@@ -120,9 +139,9 @@ const Content = () => {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 font-sans antialiased">
       {/* Hero Section */}
-      <section id='hero' className="hero min-h-screen bg-transparent text-center lg:text-left">
+      <section id='hero' className="hero min-h-screen bg-transparent text-center md:text-left">
         <div className="container mx-auto px-4 py-4 flex items-center justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:gap-32 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-32 gap-8">
             <div className="hero-text">
               <h1 className="text-5xl font-bold font-mono uppercase tracking-wide mb-4 text-blue-500 neon-text">
                 Kwankap Dinang Gilles Hermann
@@ -130,7 +149,7 @@ const Content = () => {
               <h2 className="text-3xl mb-8 font-mono text-gray-300 tracking-wider">
                 <u className="text-blue-300">Développeur Web & Mobile Full Stack</u>
               </h2>
-              <p className="xl:text-lg lg:text-xl mb-8 text-gray-400 leading-relaxed">
+              <p className="lg:text-lg md:text-xl mb-8 text-gray-400 leading-relaxed">
                 Développeur Web & Mobile Full Stack junior passionné par la création d'expériences web et application innovante.
                 J’ai effectué plusieurs années en tant que téléconseiller dans l’expertise technique
                 (SFR, par le sous-traitant INTELCIA) ce qui m’a permis d’acquérir de très bonnes compétences telles que l’organisation,
@@ -141,7 +160,7 @@ const Content = () => {
                 Je continue donc à travailler chaque jour avec envie, motivation et des idées
                 plein la tête.
               </p>
-              <div className="hero-buttons flex justify-center lg:justify-start space-x-4">
+              <div className="hero-buttons flex justify-center md:justify-start space-x-4">
                 <a
                   href="#"
                   className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 neon-btn"
@@ -160,21 +179,22 @@ const Content = () => {
             <div className="text-center md:text-right justify-center py-10">
               <img src={hero}
                 alt="Votre photo"
-                className="rounded-full ring-2 ring-blue-500 w-96 h-96 mx-auto lg:ml-auto
-                object-cover transition-transform duration-500 transform hover:scale-105" />
+                className="rounded-full ring-2 ring-blue-500 w-96 h-96 mx-auto md:ml-auto
+                object-cover transition-transform duration-500 transform hover:scale-105"
+                style={{ objectPosition: '50% 0%' }} />
             </div>
           </div>
         </div>
 
 {/* Skills Section */}
-<section id="competences" className="container mx-auto px-4 py-4">
-        <h2 className="lg:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
-          Expertise Frontend & Styles Innovants (Niveau de Maîtrise)
+<section id="competences" className="container mx-auto px-4 md:py-8 lg:py-24">
+        <h2 className="md:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
+          Expertise & Styles Innovants (Niveau de Maîtrise)
         </h2>
-        <p className="lg:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
+        <p className="md:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
           Visualisation de mon niveau de maîtrise pour chaque compétence clé en développement frontend et techniques de styling innovantes.
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-y-12 gap-x-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-12 gap-x-8">
           {competences.map((competence, index) => (
             <div key={index} className="skill-progress-item">
               <span className="skill-name block font-mono text-gray-300 mb-2">{competence.name}</span>
@@ -197,14 +217,13 @@ const Content = () => {
 
       {/* Experience Section */}
       <section id="experience" className="container mx-auto px-4 py-24">
-        <h2 className="lg:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
+        <h2 className="md:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
           Expérience Professionnelle
         </h2>
-        <p className="lg:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
-          Un parcours professionnel axé sur le frontend, l'innovation UI/UX et le leadership technique. Des expériences
-          significatives dans des environnements variés, de startups innovantes à des agences web de renom.
+        <p className="md:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
+          Un parcours professionnel
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {experiences.map((experience, index) => (
             <div
               key={index}
@@ -224,65 +243,166 @@ const Content = () => {
       </section>
 
 
-      {/* Experience Section */}
-      
-      <section id="portfolio" className="container mx-auto px-4 py-24">
-  <h2 className="lg:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
-    Projets Phares - Portfolio Frontend Innovant
-  </h2>
-  <p className="lg:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
-    Une sélection de projets qui illustrent mon expertise en développement frontend, mon souci du détail et mon
-    approche innovante du styling et des animations web.
-  </p>
-  <Slider {...settings}>
-    {portfolios.map((portfolio, index) => (
-      <div
-        key={index}
-        className="portfolio-card bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-blue-500/50 transition-shadow duration-300 border-2 border-transparent hover:border-blue-500 mx-4" // Ajout de mx-4 pour l'espace horizontal
-      >
-        <h3 className="text-xl font-bold font-mono text-blue-300 mb-2">{portfolio.nomProjet}</h3>
-        <p className="text-gray-300 mb-1">
-          <span className="font-bold text-gray-400">Technologies:</span> {portfolio.technologies}
+ {/* Portfolio Section */}
+
+
+ <section id="portfolio" className="container mx-auto px-4 py-24">
+
+ 
+        <h2 
+        className="md:text-4xl lg:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
+          Projets Phares - Portfolio 
+        </h2>
+        <p className="md:text-xl lg:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
+          Une sélection de projets qui illustrent mon expertise en développement web/mobile.
         </p>
-        <p className="text-gray-300 mb-2 text-gray-300">{portfolio.description}</p>
-        {portfolio.imageSrc && (
-          <img
-            src={portfolio.imageSrc}
-            alt={`Image du projet ${portfolio.nomProjet}`}
-            className="mt-4 rounded-md shadow-md"
-          />
-        )}
-        <a
-          href="#"
-          className="inline-block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 neon-btn"
-        >
-          Voir le Projet
-        </a>
-      </div>
-    ))}
-  </Slider>
-</section>
+
+        <div className=''>
+          <h2
+          className='md:text-3xl lg:text-2xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text'>
+            Projet Sur GitHub
+          </h2>
+        <Slider {...settings}>
+          {repos.map((repo, index) => (
+            <div
+              key={index}
+              className="portfolio-card bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-blue-500/50 transition-shadow duration-300 border-2 border-transparent hover:border-blue-500 mx-4"
+            >
+              <h3 className="text-xl font-bold font-mono text-blue-300 mb-2">{repo.name}</h3>
+              <p className="text-gray-300 mb-1">
+                <span className="font-bold text-gray-400">Description:</span> {repo.description || 'Aucune description disponible'}
+              </p>
+              <p className="text-gray-300 mb-2">
+                <span className="font-bold text-gray-400">Langage:</span> {repo.language || 'Non spécifié'}
+              </p>
+              <p className="text-gray-300 mb-2">
+                <span className="font-bold text-gray-400">Topic:</span> {repo.topic || 'Non spécifié'}
+              </p>
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 neon-btn"
+              >
+                Voir le Projet
+              </a>
+
+              <a
+              href={repo.homepage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-2 mx-2 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300"
+              >
+              Voir la démo
+              </a>
+            </div>
+          ))}
+        </Slider>
+
+        </div>
+
+        <div className='my-10'>
+          <h2
+          className='md:text-3xl lg:text-2xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text'>
+            Autres Projet web & Design 
+          </h2>
+
+            <Slider {...settings}>
+              {portfolios.map((portfolio, index) => (
+                <div
+                  key={index}
+                  className="portfolio-card bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-blue-500/50 transition-shadow duration-300 border-2 border-transparent hover:border-blue-500 mx-4" // Ajout de mx-4 pour l'espace horizontal
+                >
+                  <h3 className="text-xl font-bold font-mono text-blue-300 mb-2">{portfolio.nomProjet}</h3>
+                  <p className="text-gray-300 mb-1">
+                    <span className="font-bold text-gray-400">Technologies:</span> {portfolio.technologies}
+                  </p>
+                  <p className=" mb-2 text-gray-300">{portfolio.description}</p>
+                  {portfolio.imageSrc && (
+                    <img
+                      src={portfolio.imageSrc}
+                      alt={`Image du projet ${portfolio.nomProjet}`}
+                      className="mt-4 rounded-md shadow-md"
+                    />
+                  )}
+                  <a
+                    href="#"
+                    className="inline-block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 neon-btn"
+                  >
+                    Voir le Projet
+                  </a>
+                </div>
+              ))}
+            </Slider>
+
+
+        </div>
+
+
+  
+      </section>
+
+
+
+
+
+
+
 
       {/* Contact Section */}
       <section id="contact" className="container mx-auto px-4 py-24">
-        <h2 className="lg:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
+        <h2 className="md:text-4xl xl:text-5xl font-bold text-center font-mono uppercase tracking-wide mb-12 text-blue-500 neon-text">
           Collaborons Ensemble
         </h2>
-        <p className="lg:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
+        <p className="md:text-xl xl:text-2xl mb-16 text-center text-gray-400 leading-relaxed">
           Prêt à donner vie à vos projets web les plus ambitieux ? Contactez-moi pour discuter de vos besoins et découvrir
-          comment mon expertise en frontend et mon approche innovante peuvent faire la différence.
+          comment mon expertise et mon approche innovante peuvent faire la différence.
         </p>
+
         <div className="contact-info text-center">
-          <p className="text-gray-300 mb-4">
-            <span className="font-bold text-gray-400">Email:</span> <a href="mailto:kwenkaphermann@gmail.com" className="text-blue-300 hover:underline neon-text-link">kwenkaphermann@gmail.com</a>
-          </p>
-          <p className="text-gray-300 mb-4">
-            <span className="font-bold text-gray-400">Téléphone:</span> <a href="wa.me//+237690828692" className="text-blue-300 hover:underline neon-text-link">+237 690828692</a>
-          </p>
-          <p className="text-gray-300">
-            <span className="font-bold text-gray-400">LinkedIn:</span> <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline neon-text-link">linkedin.com/in/your-linkedin</a>
-          </p>
+            {/* Email */}
+            <a
+              href="mailto:kwenkaphermann@gmail.com"
+              className="inline-flex items-center justify-center bg-gray-800 hover:bg-blue-500 text-blue-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-blue-500/50"
+              aria-label="Envoyer un email"
+            >
+              <FaEnvelope className="w-6 h-6" />
+            </a>
+
+            {/* Téléphone (WhatsApp) */}
+            <a
+              href="https://wa.me//+237690828692"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-gray-800 hover:bg-green-500 text-green-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-green-500/50"
+              aria-label="Contacter via WhatsApp"
+            >
+              <FaWhatsapp className="w-6 h-6" />
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/gilles-hermann-kwenkap-dinang-a2730a350/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-gray-800 hover:bg-blue-600 text-blue-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-blue-600/50"
+              aria-label="Visiter mon profil LinkedIn"
+            >
+              <FaLinkedin className="w-6 h-6" />
+            </a>
+
+            {/* GitHub (optionnel) */}
+            <a
+              href="https://github.com/Kwenkap"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-gray-700/50"
+              aria-label="Visiter mon profil GitHub"
+            >
+              <FaGithub className="w-6 h-6" />
+            </a>
         </div>
+
       </section>
     </main>
   );
