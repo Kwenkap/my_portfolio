@@ -1,6 +1,8 @@
 // components/Header.js
 import React from 'react';
 import hero from '../image/hero.jpg'
+import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';import Slider from 'react-slick'; // Importation de Slider pour le carrousel
+
 
 
 const Header = () => {
@@ -20,13 +22,47 @@ const Header = () => {
           </button>
         </div>
         <div className="hidden lg:flex">
-          <ul className="flex space-x-8">
-            {['Home', 'Competences', 'Contact'].map(item => (
-              <li key={item}>
-                <a href={item} className="block py-2 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent">{item}</a>
-              </li>
-            ))}
-          </ul>
+           {/* Email */}
+              <a
+                href="mailto:kwenkaphermann@gmail.com"
+                className="inline-flex items-center justify-center bg-gray-800 hover:bg-blue-500 text-blue-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-transform duration-300" // Ajout de transform et transition-transform
+                aria-label="Envoyer un email"
+              >
+                <FaEnvelope className="w-6 h-6" />
+              </a>
+          
+              {/* Téléphone (WhatsApp) */}
+              <a
+                href="https://wa.me//+237690828692"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-gray-800 hover:bg-green-500 text-green-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-green-500/50 transform hover:scale-105 transition-transform duration-300" // Ajout de transform et transition-transform
+                aria-label="Contacter via WhatsApp"
+              >
+                <FaWhatsapp className="w-6 h-6" />
+              </a>
+          
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/gilles-hermann-kwenkap-dinang-a2730a350/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-gray-800 hover:bg-blue-600 text-blue-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-blue-600/50 transform hover:scale-105 transition-transform duration-300" // Ajout de transform et transition-transform
+                aria-label="Visiter mon profil LinkedIn"
+              >
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+          
+              {/* GitHub (optionnel) */}
+              <a
+                href="https://github.com/Kwenkap"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white rounded-full p-4 m-2 transition-all duration-300 shadow-lg hover:shadow-gray-700/50 transform hover:scale-105 transition-transform duration-300" // Ajout de transform et transition-transform
+                aria-label="Visiter mon profil GitHub"
+              >
+                <FaGithub className="w-6 h-6" />
+              </a>
         </div>
       </div>
     </nav>
